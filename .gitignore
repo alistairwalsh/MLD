@@ -1,2 +1,13 @@
-.DS_Store
+# Python
 .ipynb_checkpoints/
+*.pyc
+
+# R
+.RData/
+.Rhistory
+
+# Directories
+data/
+
+# Mac
+.DS_Store
