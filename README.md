@@ -2,7 +2,7 @@
 
 [![hive entrance](images/classifiers.png)](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html)
 
-## Focus
+## Aim
 
 The aim of this project is to produce open source workshop materials which can be used to teach scientists how to use machine learning as a tool to assist them with their research.
 
@@ -32,15 +32,14 @@ The data used for this workshop come in the form of images of tags on the backs 
 
 ![hive entrance](images/entrance.jpg)
 
-
-
 ## Requirements
 
-These lessons have been written with a certain type of learner in mind. They assume you are comfortable with writing and using Python code. They also assume a general understanding of statistical concepts. Nothing too esoteric but you should have a working knowledge of regression and significance.
+Workshop participants are assumed to have basic Python programming skills. An understanding of basic statistical concepts like regression and significance is also beneficial.
 
 The following software is required:
 
 * Python 3+
 * NumPy
 * OpenCV
+* Matplotlib
 * scikit-learn
