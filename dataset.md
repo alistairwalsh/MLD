@@ -8,9 +8,9 @@ The data explored during this workshop come from a research project where honeyb
 
 Tag Number             |  Pattern   | Details
 :-------------------------:|:-------------------------: | :-------------------------:
-1  |  Rectangle | 100 bees that were not exposed to any drugs:
-2  |  Circle    | 100 bees that were treated with caffeine:
-3  | Blank      | Single queen in the colony received this tag:
+1  |  Rectangle | 100 bees that were the control group
+2  |  Circle    | 100 bees that were treated with caffeine
+3  | Blank      | Single queen in the colony received this tag
 
 This is what the tags looked like before we added them to the colony:
 
