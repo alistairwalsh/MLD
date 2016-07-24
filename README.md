@@ -64,11 +64,9 @@ Alternatively, you can use pip in a virtual environment:
     /path/to/python35 -m venv pyconau_ml
     source pyconau_ml/bin/activate
     python -m pip install --upgrade pip
-    python -m pip install numpy scikit-learn jupyter matplotlib
+    python -m pip install numpy scipy scikit-learn jupyter matplotlib
 
-Note the pip upgrade is necessary so Linux distributions will use precompiled wheels (see the [manylinux](https://github.com/pypa/manylinux) project for details). With a pip version older than 8.1 numpy and scikit-learn will be installed from source*.
-
-*This is not fun - we don't recommend it.
+Note the pip upgrade is necessary so Linux distributions will use precompiled wheels (see the [manylinux](https://github.com/pypa/manylinux) project for details). With a pip version older than 8.1 numpy and scikit-learn will be installed from source.
 
 
 ## Workshop Materials and Dataset
