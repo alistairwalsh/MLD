@@ -13,6 +13,7 @@ The aim of this workshop is to introduce the basics of machine learning with Pyt
 2. [Workshop dataset](dataset.md)
 3. [Image and feature analysis](images_features.ipynb)
 4. [Building a machine learning program](training_testing.ipynb)
+5. [Putting it all together and validating](pipelines_validation.md)
 
 
 ## Learning Objectives
