@@ -1,10 +1,10 @@
 # Workshop dataset
 
-These materials will provide a practical introduction to commonly used machine learning techniques, using data from a real research project into honeybee behaviour that was solved with machine learning.
+The data for this workshop is from a real research project into honeybee behaviour that was solved with machine learning.
 
 ## Classifying Honeybee Tags
 
-The data explored during this workshop come from a research project where honeybees were tagged with reflective markers and filmed using an infrared light for 24 hours a day for over two weeks. Three different types of tag were used:
+To explore honeybee behaviour bees were individually tagged with reflective markers. They were then filmed using an infrared light for 24 hours a day for over two weeks. Three different types of tag were used:
 
 Tag Number             |  Pattern   | Details
 :-------------------------:|:-------------------------: | :-------------------------:
@@ -28,13 +28,15 @@ Experiment Footage             |
 :-------------------------:|
 ![](images/beehive.png)  |
 
-We're interested in distinguishing the three tagged groups of bees in the footage from this experiment. There are far too many videos and bees to be able to do this ourselves, so we'll try to train a machine learning algorithm to perform this classification task for us. Today's workshop will use a dataset of over 700 images to train and test a machine learning classification program that we'll build.
 
-## Libraries
+Ultimately the aim of this experiment was to examine honeybee behaviour by:
 
-We'll be using the following Python libraries throught this workshop:
+1. Identifying locations of bees in individual video frames.
+2. Determining whether the located bees were in the control or treatment groups based on the image of the tag on their back.
+3. Tracking the location of the bees over time.
 
-* scikit-learn: Machine learning library
-* OpenCV: Image processing library
-* NumPy: Matrix manipulation library
-* Matplotlib: For generating figures and plots
+We're interested in distinguishing the three tagged groups of bees in the footage from this experiment. There are far too many videos and bees to be able to do this manually, so we'll try to train a machine learning algorithm to perform this classification task for us. 
+
+For this workshop we will focus on step 2: identifying the tags on the back of the bee. The dataset consists of 730 24x24 pixel images cropped from video frames like the above. Each image has been labelled with the type of tag visible. Our job is to automatically identify what the tag is from the content of the image itself.
+
+
