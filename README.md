@@ -9,10 +9,10 @@ The aim of this workshop is to introduce the basics of machine learning with Pyt
 
 ## Workshop Structure
 
-1. [Introducing machine learning](intro.md)
-2. [Workshop dataset](dataset.md)
-3. [Image and feature analysis](images_features.ipynb)
-4. [Building a machine learning program](training_testing.ipynb)
+1. [Workshop dataset](dataset.md)
+2. [Introducing machine learning](intro.md)
+3. [Image and feature analysis](images_features.md)
+4. [Building a machine learning program](training_testing.md)
 5. [Putting it all together and validating](pipelines_validation.md)
 
 
