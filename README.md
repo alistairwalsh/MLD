@@ -41,54 +41,63 @@ The data used for this workshop come in the form of images of tags on the backs 
 
 We will be demonstrating using scikit-learn 0.17 on Python 3.5. Our demonstrations will be in a Jupyter notebook. Here are two ways to install these packages. Note that older versions may work, but they have not been tested.
 
-Installing a numerical stack for Python is getting easier all the time, but can still be tricky. We give two recipes below, one using the Conda package manager and one for pip in a virtual environment.
+Installing a numerical stack for Python is getting easier all the time, but can still be tricky. We give two recipes below, firstly for pip in a virtual environment and secondly using the Conda package manager.
 
 
-### Conda/Miniconda (Recommended)
-
-We recommend the Anaconda distribution for this workshop [(located here).](https://www.continuum.io/downloads). The default Anaconda environment includes everything we need for this workshop. An alternative is [Miniconda](http://conda.pydata.org/miniconda.html), but you will need to create an environment following the instructions below.
-
-    # After installing conda or miniconda
-    conda create -n pyconau_ml python=3.5 scikit-learn jupyter matplotlib
-    source activate pyconau_ml
-
-    # Activate the Conda environment on Windows:
-    activate pyconau_ml
-
-Note that jupyter and matplotlib are included because we will be demonstrating from a jupyter notebook and using matplotlib to show some images and some graphs. You are of course welcome to work in whatever environment you feel comfortable.
-
-### Pip in a virtual environment
-
-Alternatively, you can use pip in a virtual environment:
+### Option 1. Pip in a virtual environment
 
     # Setup a virtual env
-    /path/to/python35 -m venv pyconau_ml
-    source pyconau_ml/bin/activate
+    /path/to/python3 -m venv ml_tutorial
+    source ml_tutorial/bin/activate
+
+    # Upgrade pip to newest version
     python -m pip install --upgrade pip
-    python -m pip install numpy scipy scikit-learn jupyter matplotlib
 
-Note the pip upgrade is necessary so Linux distributions will use precompiled wheels (see the [manylinux](https://github.com/pypa/manylinux) project for details). With a pip version older than 8.1 numpy and scikit-learn will be installed from source.
+    # Install the dependencies
+    python -m pip install numpy scipy scikit-learn
+
+Note the pip upgrade is necessary so Linux distributions will use precompiled wheels (see the [manylinux](https://github.com/pypa/manylinux) project for details). With a pip version older than 8.1 numpy and scikit-learn will be installed from source*.
+
+* We really don't recommend this.
 
 
-## Workshop Materials and Dataset
+### Option 2. Conda/Miniconda
 
-This workshop is hosted [here](https://github.com/alistairwalsh/MLD.git). Cloning this repository will give you the full workshop content, including the notes, the jupyter notebook we will be presenting from and the workshop dataset in raw and preprocessed formats.
+The Anaconda distribution of Python [(located here).](https://www.continuum.io/downloads) includes everything we need in the default installation. You can also create a specific environment for this tutorial following the instructions below.
 
-    git clone https://github.com/alistairwalsh/MLD.git
+An alternative is [Miniconda](http://conda.pydata.org/miniconda.html), or installing the Conda package manager through pip, but you will need to create an environment following the instructions below.
+
+    # After installing conda or miniconda
+    conda create -n ml_tutorial python=3.5 scikit-learn
+    source activate ml_tutorial
+
+    # Activate the Conda environment on Windows:
+    activate ml_tutorial
+
+
+### Optional Elements
+
+The workshop demonstrations will use the Jupyter notebook and Matplotlib for a few plots. If you'd like to work in exactly the same environment you can install these libraries with the below instructions. Note that these are big libraries with many dependencies and we don't recommend trying to set them up on the day using conference wifi.
+
+    # Using pip, in the appropriate virtual environment:
+    pip install jupyter matplotlib
+
+    # Inside a Conda environment (these are already installed in the base distribution)
+    conda install jupyter matplotlib
+
+
+## Workshop Dataset
+
+The workshop dataset is located [here](https://raw.githubusercontent.com/SamHames/MLD/master/data.npz). For the convenience of this workshop it is distributed as a preprocessed set of numpy arrays that we can load directly.
 
 
 ## Testing Your Installation
 
-Inside the workshop repository you cloned:
-
-    jupyter notebook demonstration_notebook.ipynb
-
-Running the first cell (placing the cursor inside the cell and hitting ctrl-enter) should succesfully import all of the installed libraries.
-
-If you're not running in the jupyter notebook, if the following works you are ready:
+If the following works you are ready for this workshop.
 
     import numpy as np
     import sklearn
-    import matplotlib.pyplot as plt
 
-    images, labels = np.load('path/to/data.npz')
+    dataset = np.load('path/to/data.npz')
+    images = dataset['images']
+    labels = dataset['labels']
