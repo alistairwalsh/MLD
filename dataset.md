@@ -37,6 +37,7 @@ Ultimately the aim of this experiment was to examine honeybee behaviour by:
 
 We're interested in distinguishing the three tagged groups of bees in the footage from this experiment. There are far too many videos and bees to be able to do this manually, so we'll try to train a machine learning algorithm to perform this classification task for us. 
 
-For this workshop we will focus on step 2: identifying the tags on the back of the bee. The dataset consists of 730 24x24 pixel images cropped from video frames like the above. Each image has been labelled with the type of tag visible. Our job is to automatically identify what the tag is from the content of the image itself.
+For this workshop we will focus on step 2: identifying the tags on the back of the bee. The dataset consists of 730 24x24 pixel images cropped from video frames like the above. Example crops are shown below. Each image has been labelled with the type of tag visible. Our job is to automatically identify what the tag is from the content of the image itself.
 
+![](images/example_images.png)
 
