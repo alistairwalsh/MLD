@@ -21,20 +21,21 @@ A scikit-learn [pipeline](http://scikit-learn.org/stable/modules/generated/sklea
 
 We can build a pipeline combining our LDA transformation and SVM classifier like so:
 
-    from sklearn.pipeline import Pipeline
-    from sklearn.svm import LinearSVC
+
+    from sklearn import svm
     from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
+    from sklearn.pipeline import Pipeline
 
     # Start by creating the individual steps in the pipeline
     lda = LDA(n_components=20)
-    svc = LinearSVC()
+    svc = svm.SVC(gamma=0.0001, C=10)
 
     pipeline = Pipeline([('lda', lda),
                          ('svc', svc)])
 
-    pipeline.fit(transformed_pixels, labels)
+    pipeline.fit(X_train, y_train)
 
-    pipeline.score(held_out, held_out_labels)
+    pipeline.score(X_test, y_test)
 
 
 # Adding your own transformer
@@ -52,7 +53,7 @@ Lets build an example for the unwrapping step:
 
     class CropUnwrap(TransformerMixin, BaseEstimator):
 
-        def __init__(self, crop_pixels):
+        def __init__(self, crop_pixels=0):
             self.crop_pixels = crop_pixels
             return None
 
@@ -98,17 +99,22 @@ We can conduct a random search like in the following code. To specify the parame
 
     searcher = RandomizedSearchCV(pipeline, search_range, n_iter=20)
 
-    searcher.fit(images, labels)
+    searcher.fit(X_train, y_train)
 
 
 To run a random search we specify ranges of values for each parameter in the model. The RandomSearch algorithm selects random combinations for each value and runs the pipeline from beginning to end with those values. Note that the RandomSearch takes a classifier, and in this case we fed in our pipeline of operations from earlier.
 
-The trained classifier at the end is the RandomSearch object, we can call predict on this object to classify the final objects.
+The trained classifier at the end is the RandomSearch object, we can call predict on this object to classify the final objects. We can also inspect the final values for best parameters.
 
 
 # Final validation
 
 Remember the test set we held out? Now we can use it for a final validation. Note that the scores from the randomised search are likely to be optimistic since we've selected the best combination of parameters for that dataset --- only by testing on data that we didn't use for training can we get an accurate measure of our performance. 
 
-    searcher.score(test_images, test_labels)
+    searcher.score(X_test, y_test)
 
+# Questions/Exercises
+
+1. Try out some other classifiers in the pipeline - can you improve the final performance on the test set? What about with other search parameters?
+2. Why is the separate test set still needed when the random search uses k-fold cross validation?
+3. Is accuracy really the best measure of performance for this dataset?
